@@ -112,7 +112,7 @@ def call(Map config = [:]) {
       sh """
         ${rhevm_qe_infra_dir}/scripts/production-monitoring/pygsheets-env.sh \
           ${build_name} \
-          ${description} \
+          \"${description}\" \
           ${build_status} \
           ${env.BUILD_URL} \
           is_upstream=true status_update=true
@@ -124,7 +124,7 @@ def call(Map config = [:]) {
     sh """
       ${rhevm_qe_infra_dir}/scripts/production-monitoring/pygsheets-env.sh \
         ${build_name} \
-        ${currentBuild.description} \
+        \"${currentBuild.description}\" \
         ${env.BUILD_URL} \
         ${job_name} \
         ${env.JENKINS_URL} \
@@ -136,7 +136,7 @@ def call(Map config = [:]) {
     sh """
       ${rhevm_qe_infra_dir}/scripts/production-monitoring/pygsheets-env.sh \
         ${build_name} \
-        ${currentBuild.description} \
+        \"${currentBuild.description}\" \
         ${build_result.result} \
         is_upstream=false status_update=true
     """
