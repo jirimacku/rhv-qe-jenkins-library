@@ -57,6 +57,8 @@ def build_info(response, parent_pipeline_status =null) {
       response = url.toURL().text
       response_object = jsonSlurper.parseText(response)
     } catch (Error e){}
+    def descr = response_object.description
+    echo "Description: ${descr}"
     def buildType = response_object.description ? response_object.description.split(':')[1].trim() : ""
     return [response_object.displayName, buildType] // name of google worksheet and strategy
 }
