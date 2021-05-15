@@ -53,7 +53,7 @@ def build_info(response, parent_pipeline_status =null) {
              + response_object.actions.causes[0].upstreamUrl.join(", ") \
              + response_object.actions.causes[0].upstreamBuild.join(", ") \
              + "/api/json"
-
+      echo "Parent build url: ${url}" 
       response = url.toURL().text
       response_object = jsonSlurper.parseText(response)
     } catch (Error e){}
