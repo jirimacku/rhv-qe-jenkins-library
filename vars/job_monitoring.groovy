@@ -59,7 +59,7 @@ def build_info(response, parent_pipeline_status =null) {
     } catch (Error e){}
     def descr_type = response_object.description.split(':')[1]
     echo "Description: ${descr_type}"
-    def buildType = response_object.description ? response_object.description.split(':')[1].trim() : ""
+    def buildType = descr_type ? descr_type.trim() : ""
     return [response_object.displayName, buildType] // name of google worksheet and strategy
 }
 
