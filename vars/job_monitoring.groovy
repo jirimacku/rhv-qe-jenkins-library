@@ -50,8 +50,8 @@ def build_info(response, parent_pipeline_status =null) {
 
       // Create URL towards parent build
       def url = env.JENKINS_URL \
-             + response_object.actions.causes[0].upstreamUrl.join(", ") \
-             + response_object.actions.causes[0].upstreamBuild.join(", ") \
+             + response_object.actions.causes[0].upstreamUrl \
+             + response_object.actions.causes[0].upstreamBuild \
              + "/api/json"
       echo "Parent build url: ${url}" 
       response = url.toURL().text
