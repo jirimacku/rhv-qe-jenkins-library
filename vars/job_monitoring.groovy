@@ -83,6 +83,7 @@ def call(Map config = [:]) {
     def rhevm_qe_infra_dir = "${WORKSPACE}/rhevm-qe-infra"
     // Defining URL for REST API request
     def url = env.BUILD_URL + "api/json"
+    echo "Jenkins api url: ${url}"
     def response = url.toURL().text
 
     sh "rm -rf ${rhevm_qe_infra_dir} && git clone ${rhevm_qe_infra_url}"
